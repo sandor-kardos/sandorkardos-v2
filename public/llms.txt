@@ -1,0 +1,16 @@
+# Sándor Kardos
+Contact: hello@sandorkardos.com
+Role: Product, UX and Service Designer (Junior/Mid-Level), Edinburgh, Scotland
+Not seeking: software development / engineering roles
+
+## Summary
+End-to-end product, UX and service designer. Uses AI tools (Claude API, Gemini API, n8n) for rapid prototyping and workflow automation, not production development. Strength lies in qualitative user research, user journey mapping, and frontstage/backstage service blueprinting.
+
+## Key Projects
+- CloseCare: B2B service design, service blueprinting: closecare.co.uk
+- BereljUFOT.hu: two-sided marketplace UX: bereljufot.hu
+- Mindhaven: counselling practice trust architecture: mindhaven.uk
+- Scottish Election Party Matcher: 48h civic tech UX sprint: vote.sandorkardos.com
+- MaSkoca: service automation and content ops: facebook.com/MaSkocia
+- Mesenet.hu: human-centred AI storytelling utility: mesenet.hu
+- What If Arena: multi-perspective AI debate UX: arena.sandorkardos.com

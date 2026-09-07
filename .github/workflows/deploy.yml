@@ -1,0 +1,50 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "npm"
+          cache-dependency-path: sandorkardos-v2/package-lock.json
+
+      - name: Install dependencies
+        working-directory: ./sandorkardos-v2
+        run: npm ci
+
+      - name: Run lint
+        working-directory: ./sandorkardos-v2
+        run: npm run lint
+
+      - name: Build production bundle
+        working-directory: ./sandorkardos-v2
+        run: npm run build
+        env:
+          NEXT_PUBLIC_GA_ID: ${{ secrets.NEXT_PUBLIC_GA_ID }}
+          GITHUB_TOKEN: ${{ secrets.GH_PAT_TOKEN }}
+
+  deploy-coolify:
+    needs: build-and-test
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Trigger Coolify Webhook Deploy
+        if: env.COOLIFY_WEBHOOK_URL != ''
+        env:
+          COOLIFY_WEBHOOK_URL: ${{ secrets.COOLIFY_WEBHOOK_URL }}
+        run: |
+          curl -X GET "$COOLIFY_WEBHOOK_URL"
