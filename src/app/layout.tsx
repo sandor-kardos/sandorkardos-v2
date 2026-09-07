@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 import JsonLd from "@/components/JsonLd";
+import PaintBrushCanvas from "@/components/PaintBrushCanvas";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://sandorkardos.com"),
@@ -80,6 +81,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+        <PaintBrushCanvas />
         <GoogleAnalytics />
       </body>
     </html>

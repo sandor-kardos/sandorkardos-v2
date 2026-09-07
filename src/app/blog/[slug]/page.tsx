@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { BLOG_POSTS } from "@/content/blog-posts";
+import JsonLd from "@/components/JsonLd";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -26,11 +27,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${post.title} | Sándor Kardos`,
     description: post.metaDescription,
+    alternates: {
+      canonical: `https://sandorkardos.com/blog/${post.slug}`
+    },
     openGraph: {
       title: post.title,
       description: post.metaDescription,
       type: "article",
-      url: `https://sandorkardos.com/blog/${post.slug}`
+      url: `https://sandorkardos.com/blog/${post.slug}`,
+      images: [
+        {
+          url: "/images/portrait.webp",
+          width: 1200,
+          height: 627,
+          alt: post.title
+        }
+      ]
     }
   };
 }
@@ -45,6 +57,14 @@ export default async function BlogPostPage({ params }: Props) {
 
   return (
     <div className="container">
+      <JsonLd
+        type="BreadcrumbList"
+        items={[
+          { name: "Home", item: "/" },
+          { name: "Blog", item: "/blog" },
+          { name: post.title, item: `/blog/${post.slug}` }
+        ]}
+      />
       <article className="blog-post-detail">
         <header className="case-study-hero">
           <div className="cs-eyebrow">

@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CASE_STUDIES } from "@/content/case-studies";
@@ -27,6 +28,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: cs.metaTitle,
     description: cs.metaDescription,
+    alternates: {
+      canonical: `https://sandorkardos.com/work/${cs.slug}`
+    },
     openGraph: {
       title: cs.metaTitle,
       description: cs.metaDescription,
@@ -34,7 +38,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       url: `https://sandorkardos.com/work/${cs.slug}`,
       images: [
         {
-          url: "/images/portrait.webp",
+          url: cs.image,
           width: 1200,
           height: 627,
           alt: cs.title
@@ -44,7 +48,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     twitter: {
       card: "summary_large_image",
       title: cs.metaTitle,
-      description: cs.metaDescription
+      description: cs.metaDescription,
+      images: [cs.image]
     }
   };
 }
@@ -64,7 +69,16 @@ export default async function CaseStudyDetailPage({ params }: Props) {
         name={cs.title}
         description={cs.metaDescription}
         url={`https://sandorkardos.com/work/${cs.slug}`}
+        image={cs.image}
         keywords={cs.methods}
+      />
+      <JsonLd
+        type="BreadcrumbList"
+        items={[
+          { name: "Home", item: "/" },
+          { name: "Work", item: "/work" },
+          { name: cs.title, item: `/work/${cs.slug}` }
+        ]}
       />
 
       <article className="case-study-detail">
@@ -110,6 +124,22 @@ export default async function CaseStudyDetailPage({ params }: Props) {
             </div>
           )}
         </header>
+
+        {/* High-Resolution Design Artifact Showcase */}
+        <figure className="cs-hero-figure">
+          <Image
+            src={cs.image}
+            alt={cs.imageAlt}
+            width={1376}
+            height={768}
+            priority
+            sizes="(max-width: 768px) 100vw, 760px"
+            className="cs-main-image"
+          />
+          <figcaption className="cs-image-caption">
+            Design Artifact: {cs.imageAlt} (GDPR Redacted)
+          </figcaption>
+        </figure>
 
         <div className="cs-body">
           {/* Context & Problem */}

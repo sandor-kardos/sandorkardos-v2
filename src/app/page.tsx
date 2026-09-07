@@ -15,7 +15,14 @@ export default function HomePage() {
     <div className="container">
       {/* Hero Section */}
       <section className="hero-section" aria-labelledby="hero-title">
-        <div className="portrait-wrapper">
+        <div
+          className="portrait-wrapper portrait-interactive"
+          data-portrait-trigger="true"
+          title="Hover or tap to activate cool blue-lime paintbrush mode"
+          tabIndex={0}
+          role="button"
+          aria-label="Sándor Kardos portrait. Hover or tap to activate interactive paintbrush mode"
+        >
           <Image
             src="/images/portrait.webp"
             alt="Sándor Kardos portrait"
@@ -24,6 +31,7 @@ export default function HomePage() {
             priority
             className="portrait-img"
           />
+          <span className="brush-badge-icon" aria-hidden="true" title="Paintbrush effect">🖌️</span>
         </div>
 
         <div className="hero-text-block">

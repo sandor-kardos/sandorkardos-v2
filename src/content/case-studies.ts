@@ -12,6 +12,8 @@ export interface CaseStudy {
   summary: string;
   liveUrl?: string;
   liveLabel?: string;
+  image: string;
+  imageAlt: string;
   stats: { label: string; value: string }[];
   context: string;
   problem: string;
@@ -63,6 +65,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     summary: "Edinburgh stair and close cleaning acquisition service using QR-code resident voting under Scotland's Tenement Management Scheme (51% majority rule). B2B service design and digital trust interface for commercial property decision-makers and shared-freehold residents.",
     liveUrl: "https://closecare.co.uk",
     liveLabel: "closecare.co.uk",
+    image: "/images/closecare-mockup.webp",
+    imageAlt: "CloseCare mobile resident voting interface and Edinburgh tenement stair service design",
     stats: [
       { label: "Legal Framework", value: "TMS 51% Majority Rule" },
       { label: "Target Friction", value: "Shared Stair Voting" },
@@ -146,6 +150,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     summary: "Two-sided trailer rental marketplace (TrailerGuru / BereljUFOT.hu) connecting commercial providers and private owners with renters. Search and filtering, localized booking flows, and dynamic pricing presentation designed to resolve deposit hesitation.",
     liveUrl: "https://bereljufot.hu",
     liveLabel: "bereljufot.hu",
+    image: "/images/bereljufot-mockup.webp",
+    imageAlt: "BereljUFOT trailer rental marketplace interface with vehicle towing category verification",
     stats: [
       { label: "Marketplace Type", value: "Two-Sided Rental" },
       { label: "Core Challenge", value: "Deposit Risk & Technical Specs" },
@@ -229,6 +235,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     summary: "Digital rebuild of a friend's counselling practice website. Corrected AI-drafted positioning drift, redesigned trust architecture around a hard regulatory constraint (no client testimonials permitted under ethical healthcare codes), and built the experience around the practitioner's authentic portrait and clinical grounding.",
     liveUrl: "https://mindhaven.uk",
     liveLabel: "mindhaven.uk",
+    image: "/images/mindhaven-mockup.webp",
+    imageAlt: "Mindhaven counselling practice website trust architecture with authentic practitioner layout",
     stats: [
       { label: "Product Type", value: "Counselling Practice Website" },
       { label: "Regulatory Rule", value: "Zero Testimonials Permitted" },
@@ -312,6 +320,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     summary: "48-hour civic tech UX sprint matching voters to Scottish political party manifestos. Reached 366 unique visitors across 6 countries in 7 days, demonstrating rapid problem framing, bias-free interaction design, and swift execution under a live election cycle.",
     liveUrl: "https://vote.sandorkardos.com",
     liveLabel: "vote.sandorkardos.com",
+    image: "/images/vote-mockup.webp",
+    imageAlt: "Scottish Election Party Matcher mobile civic tech quiz interface with manifesto quote drawer",
     stats: [
       { label: "Unique Visitors", value: "366 in 7 Days" },
       { label: "Geographic Reach", value: "6 Countries" },
@@ -395,6 +405,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     summary: "Automated Scottish news pipeline for the Hungarian community in Scotland. Designed a dual-LLM n8n service pipeline turning 300+ daily RSS items into 10 structured summaries, cutting manual editorial cycle time by 75%.",
     liveUrl: "https://www.facebook.com/MaSkocia/",
     liveLabel: "facebook.com/MaSkocia",
+    image: "/images/maskoca-mockup.webp",
+    imageAlt: "MaSkoca automated Scottish news pipeline n8n service workflow and mobile approval card",
     stats: [
       { label: "Daily Input Volume", value: "300+ Raw RSS Items" },
       { label: "Curated Output", value: "10 Structured Summaries" },
@@ -476,6 +488,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     summary: "AI Hungarian children's bedtime story Progressive Web App with OCR-to-publish pipeline. Zero-noise storytelling utility designed around a single real user moment: a tired parent with five minutes and a phone in a dark room.",
     liveUrl: "https://mesenet.hu",
     liveLabel: "mesenet.hu",
+    image: "/images/mesenet-mockup.webp",
+    imageAlt: "Mesenet bedtime story progressive web app in dark room night mode with warm amber typography",
     stats: [
       { label: "Target Context", value: "Darkened Bedroom at Bedtime" },
       { label: "Time-to-Story", value: "Under 15 Seconds" },
@@ -559,6 +573,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     summary: "Multi-persona AI debate simulator with structured dialectic logic for stress-testing ideas before committing resources. Designed an interactive forum interface where contrasting historical and domain perspectives challenge assumptions.",
     liveUrl: "https://arena.sandorkardos.com",
     liveLabel: "arena.sandorkardos.com",
+    image: "/images/what-if-arena-mockup.webp",
+    imageAlt: "What If Arena multi-persona AI debate simulator interface for decision stress-testing",
     stats: [
       { label: "Product Type", value: "Decision Stress-Testing Simulator" },
       { label: "Logic Framework", value: "Multi-Persona Dialectic" },

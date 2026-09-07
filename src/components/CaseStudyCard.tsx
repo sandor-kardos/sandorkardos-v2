@@ -1,15 +1,17 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { CaseStudy } from "@/content/case-studies";
 import { trackCaseStudyView } from "@/lib/analytics";
 
 interface CaseStudyCardProps {
   caseStudy: CaseStudy;
   index?: number;
+  showImage?: boolean;
 }
 
-export default function CaseStudyCard({ caseStudy, index }: CaseStudyCardProps) {
+export default function CaseStudyCard({ caseStudy, index, showImage = true }: CaseStudyCardProps) {
   const handleClick = () => {
     trackCaseStudyView(caseStudy.slug, caseStudy.title);
   };
@@ -36,6 +38,28 @@ export default function CaseStudyCard({ caseStudy, index }: CaseStudyCardProps) 
       <p className="card-role">
         <strong>Role:</strong> {caseStudy.role}
       </p>
+
+      {/* Visual Design Showcase Thumbnail */}
+      {showImage && caseStudy.image && (
+        <Link
+          href={`/work/${caseStudy.slug}`}
+          onClick={handleClick}
+          className="card-image-link"
+          tabIndex={-1}
+          aria-hidden="true"
+        >
+          <div className="card-image-wrapper">
+            <Image
+              src={caseStudy.image}
+              alt={caseStudy.imageAlt}
+              width={1376}
+              height={768}
+              className="card-preview-image"
+              sizes="(max-width: 768px) 100vw, 760px"
+            />
+          </div>
+        </Link>
+      )}
 
       <p className="card-summary">{caseStudy.summary}</p>
 

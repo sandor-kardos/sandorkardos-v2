@@ -23,7 +23,15 @@ export default function AboutPage() {
 
       <section className="about-content" style={{ display: "flex", flexDirection: "column", gap: "2.5rem" }}>
         <div style={{ display: "flex", alignItems: "center", gap: "2rem", flexWrap: "wrap" }}>
-          <div className="portrait-wrapper" style={{ width: "110px", height: "110px" }}>
+          <div
+            className="portrait-wrapper portrait-interactive"
+            data-portrait-trigger="true"
+            title="Hover or click to activate cool blue-lime paintbrush mode"
+            tabIndex={0}
+            role="button"
+            aria-label="Sándor Kardos portrait. Hover to activate paintbrush mode"
+            style={{ width: "110px", height: "110px", cursor: "pointer" }}
+          >
             <Image
               src="/images/portrait.webp"
               alt="Sándor Kardos"
@@ -31,6 +39,7 @@ export default function AboutPage() {
               height={110}
               className="portrait-img"
             />
+            <span className="brush-badge-icon" aria-hidden="true">🖌️</span>
           </div>
           <div>
             <h2 style={{ fontSize: "1.35rem", fontWeight: 600 }}>Sándor Kardos</h2>
@@ -59,6 +68,21 @@ export default function AboutPage() {
           <p className="cs-paragraph">
             Before pursuing my design degree at Edinburgh Napier University, I worked in commercial logistics and delivery driving across Edinburgh. In physical delivery, you quickly realize that when a customer is upset at the front door, the fault rarely originated at the door. It originated in a broken sorting algorithm, an inaccurate tenement address database, or an unreasonable dispatch schedule.
           </p>
+
+          <figure className="cs-hero-figure" style={{ margin: "1.5rem 0" }}>
+            <Image
+              src="/images/service-blueprint-framework.webp"
+              alt="Service Blueprint Framework: Line of Visibility separating Frontstage Customer Touchpoints from Backstage Operations"
+              width={1376}
+              height={768}
+              sizes="(max-width: 768px) 100vw, 760px"
+              className="cs-main-image"
+            />
+            <figcaption className="cs-image-caption">
+              Framework: Line of Visibility separating Frontstage Touchpoints from Backstage Operational Systems
+            </figcaption>
+          </figure>
+
           <p className="cs-paragraph">
             This operational background directly shapes how I practice service design:
           </p>
