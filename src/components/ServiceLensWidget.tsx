@@ -107,6 +107,90 @@ const LENS_PROJECTS: LensProject[] = [
         "Automated booking reminder orchestration reducing client anxiety"
       ]
     }
+  },
+  {
+    slug: "vote",
+    title: "Scottish Election Matcher",
+    category: "Civic Tech & Public Policy Interaction",
+    tagline: "48-hour civic tech sprint matching voters to Scottish parliamentary manifestos",
+    image: "/images/vote-mockup.webp",
+    liveUrl: "https://vote.sandorkardos.com",
+    frontstage: {
+      title: "Frontstage: Neutral Voter Flow",
+      highlight: "Accessible 12-question quiz with neutral party quote drawers",
+      points: [
+        "Single-screen neutral policy statements reducing cognitive fatigue",
+        "Interactive manifesto excerpt drawers for direct source verification",
+        "Instant alignment score calculation without requiring account sign-up",
+        "Mobile-first responsive card layout for first-time young voters"
+      ]
+    },
+    backstage: {
+      title: "Backstage: Policy Verification & Analytics",
+      highlight: "Neutral weighted manifesto alignment algorithm & public analytics",
+      points: [
+        "Rigorous policy stance matrix cross-verified across Scottish party manifestos",
+        "Client-side privacy-first evaluation engine (zero personal voter profiling)",
+        "Lightweight static edge hosting delivering sub-second initial load",
+        "Public transparent methodology preventing partisan bias accusations"
+      ]
+    }
+  },
+  {
+    slug: "what-if-arena",
+    title: "What If Arena",
+    category: "Cognitive Simulation & Decision Systems",
+    tagline: "Multi-persona AI debate simulator stress-testing ideas before committing capital",
+    image: "/images/what-if-arena-mockup.webp",
+    liveUrl: "https://arena.sandorkardos.com",
+    frontstage: {
+      title: "Frontstage: Dialectic Arena",
+      highlight: "Multi-perspective dialectic forum interface for assumption testing",
+      points: [
+        "Premise formulation input designed to challenge confirmation bias",
+        "Persona selection (Risk-Averse CFO, Radical Innovator, User Advocate)",
+        "Visual turn-by-turn debate transcript with counter-arguments",
+        "Synthesized trade-off matrix ready for stakeholder alignment"
+      ]
+    },
+    backstage: {
+      title: "Backstage: Multi-Agent Orchestration",
+      highlight: "Structured multi-agent dialectic orchestration pipeline",
+      points: [
+        "Asynchronous multi-agent prompt sequencing preventing chatbot sycophancy",
+        "Perspective balance enforcement algorithm detecting repetitive claims",
+        "Structured output synthesis generating actionable decision risks",
+        "Real-time token stream optimization reducing user perceived latency"
+      ]
+    }
+  },
+  {
+    slug: "mesenet",
+    title: "Mesenet.hu",
+    category: "Family Tech & Accessible PWA",
+    tagline: "Zero-noise bedtime storytelling utility designed for exhausted parents in dark rooms",
+    image: "/images/mesenet-mockup.webp",
+    liveUrl: "https://mesenet.hu",
+    frontstage: {
+      title: "Frontstage: Bedtime Ergonomics",
+      highlight: "Dark-room bedtime ergonomics with warm amber typography",
+      points: [
+        "One-tap story start designed for a tired parent in a dark room",
+        "Low-stimulation night palette preventing child sleep disruption",
+        "Offline-first Progressive Web App with zero intrusive ads or popups",
+        "Calming bedtime tone avoiding overstimulating narrative hooks"
+      ]
+    },
+    backstage: {
+      title: "Backstage: OCR Pipeline & PWA Architecture",
+      highlight: "OCR-to-publish pipeline & local-first client caching",
+      points: [
+        "Image-to-story OCR pipeline converting physical children's book ideas",
+        "Service worker asset pre-caching for reliable offline night-time reading",
+        "Local IndexedDB storage preserving family favorites without tracking",
+        "Strict privacy architecture with zero commercial analytics or cookies"
+      ]
+    }
   }
 ];
 
@@ -157,7 +241,7 @@ export default function ServiceLensWidget() {
             <span className="lens-tab-icon">👁️</span>
             <span className="lens-tab-text">
               <strong>Frontstage View</strong>
-              <small>Customer experience & UI</small>
+              <small>Customer experience &amp; UI</small>
             </span>
           </button>
 
@@ -171,7 +255,7 @@ export default function ServiceLensWidget() {
             <span className="lens-tab-icon">⚙️</span>
             <span className="lens-tab-text">
               <strong>Backstage View</strong>
-              <small>Operations & systems</small>
+              <small>Operations &amp; systems</small>
             </span>
           </button>
         </div>
@@ -210,8 +294,8 @@ export default function ServiceLensWidget() {
               <Image
                 src={currentProject.image}
                 alt={`${currentProject.title} live interface preview`}
-                width={700}
-                height={400}
+                width={1200}
+                height={675}
                 className="lens-screenshot-img"
               />
               <div className="lens-screenshot-caption">
@@ -230,15 +314,15 @@ export default function ServiceLensWidget() {
                   <div className="step-badge">01 Trigger</div>
                   <div className="step-content">Resident QR Scan or Customer Web Intent</div>
                 </div>
-                <div className="diagram-arrow">↓</div>
+                <div className="diagram-arrow">&darr;</div>
                 <div className="diagram-step highlight-step">
                   <div className="step-badge">02 Verification Engine</div>
                   <div className="step-content">{currentProject.backstage.highlight}</div>
                 </div>
-                <div className="diagram-arrow">↓</div>
+                <div className="diagram-arrow">&darr;</div>
                 <div className="diagram-step">
                   <div className="step-badge">03 Operational Output</div>
-                  <div className="step-content">Automated Contractor Routing & Settlement</div>
+                  <div className="step-content">Automated Routing, Ledger Settlement &amp; Dispatch</div>
                 </div>
               </div>
               <div className="diagram-footer">

@@ -16,8 +16,8 @@ function subscribe(callback: () => void) {
 function getSnapshot(): "light" | "dark" {
   if (typeof window === "undefined") return "light";
   const saved = localStorage.getItem("sk-theme") as "light" | "dark" | null;
-  if (saved) return saved;
-  return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  if (saved === "dark" || saved === "light") return saved;
+  return "light";
 }
 
 function getServerSnapshot(): "light" | "dark" {

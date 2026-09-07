@@ -82,8 +82,29 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en-GB" data-theme="dark" className={`${plusJakarta.variable} ${outfit.variable}`}>
+    <html
+      lang="en-GB"
+      data-theme="light"
+      className={`${plusJakarta.variable} ${outfit.variable}`}
+      suppressHydrationWarning
+    >
       <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  var theme = localStorage.getItem('sk-theme');
+                  if (theme === 'dark') {
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                  } else {
+                    document.documentElement.setAttribute('data-theme', 'light');
+                  }
+                } catch(e) {}
+              })();
+            `
+          }}
+        />
         <JsonLd type="Person" />
       </head>
       <body>
