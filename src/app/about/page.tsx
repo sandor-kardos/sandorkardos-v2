@@ -25,12 +25,9 @@ export default function AboutPage() {
         <div style={{ display: "flex", alignItems: "center", gap: "2rem", flexWrap: "wrap" }}>
           <div
             className="portrait-wrapper portrait-interactive"
-            data-portrait-trigger="true"
-            title="Hover or click to activate cool blue-lime paintbrush mode"
-            tabIndex={0}
-            role="button"
-            aria-label="Sándor Kardos portrait. Hover to activate paintbrush mode"
-            style={{ width: "110px", height: "110px", cursor: "pointer" }}
+            role="img"
+            aria-label="Sándor Kardos portrait"
+            style={{ width: "110px", height: "110px" }}
           >
             <Image
               src="/images/portrait.webp"
@@ -39,7 +36,6 @@ export default function AboutPage() {
               height={110}
               className="portrait-img"
             />
-            <span className="brush-badge-icon" aria-hidden="true">🖌️</span>
           </div>
           <div>
             <h2 style={{ fontSize: "1.35rem", fontWeight: 600 }}>Sándor Kardos</h2>

@@ -21,7 +21,7 @@ export default function RepoCard({ repo }: RepoCardProps) {
             className="repo-link"
           >
             {repo.name}
-            <span className="external-arrow" aria-hidden="true">&nearr;</span>
+            <span className="external-arrow" aria-hidden="true">↗</span>
           </a>
         </h3>
         {repo.language && <span className="repo-language">{repo.language}</span>}

@@ -17,15 +17,15 @@ export default function CaseStudyCard({ caseStudy, index, showImage = true }: Ca
   };
 
   return (
-    <article className="case-study-card">
-      <div className="card-meta">
-        <span className="card-number">
-          {index !== undefined ? String(index + 1).padStart(2, "0") : ""}
+    <article className="case-study-card-bento" id={`case-study-${caseStudy.slug}`}>
+      <div className="cs-card-meta-row">
+        <span className="cs-sector-badge">{caseStudy.sector}</span>
+        <span className="cs-timeline-pill">
+          {caseStudy.timeline || (index !== undefined ? `Project 0${index + 1}` : "Production")}
         </span>
-        <span className="card-sector">{caseStudy.sector}</span>
       </div>
 
-      <h3 className="card-title">
+      <h3 className="cs-card-title">
         <Link
           href={`/work/${caseStudy.slug}`}
           onClick={handleClick}
@@ -35,11 +35,9 @@ export default function CaseStudyCard({ caseStudy, index, showImage = true }: Ca
         </Link>
       </h3>
 
-      <p className="card-role">
-        <strong>Role:</strong> {caseStudy.role}
-      </p>
+      <p className="cs-card-headline">{caseStudy.heroHeadline || caseStudy.summary}</p>
 
-      {/* Visual Design Showcase Thumbnail */}
+      {/* High-Resolution Production Mockup */}
       {showImage && caseStudy.image && (
         <Link
           href={`/work/${caseStudy.slug}`}
@@ -52,32 +50,30 @@ export default function CaseStudyCard({ caseStudy, index, showImage = true }: Ca
             <Image
               src={caseStudy.image}
               alt={caseStudy.imageAlt}
-              width={1376}
-              height={768}
+              width={1200}
+              height={675}
               className="card-preview-image"
-              sizes="(max-width: 768px) 100vw, 760px"
+              sizes="(max-width: 768px) 100vw, 980px"
             />
           </div>
         </Link>
       )}
 
-      <p className="card-summary">{caseStudy.summary}</p>
-
-      <div className="card-methods" aria-label="Methods used">
-        {caseStudy.methods.slice(0, 4).map((method) => (
-          <span key={method} className="method-pill">
+      <div className="card-tags" aria-label="Methods used">
+        {caseStudy.methods.slice(0, 5).map((method) => (
+          <span key={method} className="card-tag">
             {method}
           </span>
         ))}
       </div>
 
-      <div className="card-footer">
+      <div className="cs-links-footer">
         <Link
           href={`/work/${caseStudy.slug}`}
           onClick={handleClick}
-          className="card-cta-link"
+          className="btn btn-primary"
         >
-          Read case study &rarr;
+          Read full case study &rarr;
         </Link>
         {caseStudy.liveUrl && (
           <a
@@ -86,7 +82,7 @@ export default function CaseStudyCard({ caseStudy, index, showImage = true }: Ca
             rel="noopener noreferrer"
             className="card-live-link"
           >
-            Live product: {caseStudy.liveLabel || caseStudy.title} &nearr;
+            Visit live site: {caseStudy.liveLabel || caseStudy.title} ↗
           </a>
         )}
       </div>

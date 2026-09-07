@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import ThemeToggle from "./ThemeToggle";
 
@@ -23,8 +24,21 @@ export default function Header() {
     <header className="site-header" role="banner">
       <div className="header-inner">
         <Link href="/" className="brand-logo" aria-label="Sándor Kardos: Homepage">
-          <span className="brand-name">Sándor Kardos</span>
-          <span className="brand-discipline">Product & Service Design</span>
+          <Image
+            src="/images/portrait.webp"
+            alt="Sándor Kardos"
+            width={32}
+            height={32}
+            className="brand-avatar"
+            priority
+          />
+          <div className="brand-info">
+            <span className="brand-name">
+              Sándor Kardos
+              <span className="brand-pulse-dot" aria-hidden="true" />
+            </span>
+            <span className="brand-discipline">Product & Service Design</span>
+          </div>
         </Link>
 
         <nav className="site-nav" aria-label="Main Navigation">

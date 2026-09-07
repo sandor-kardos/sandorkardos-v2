@@ -119,7 +119,7 @@ export default async function CaseStudyDetailPage({ params }: Props) {
                 rel="noopener noreferrer"
                 className="btn btn-secondary"
               >
-                Visit live project: {cs.liveLabel || cs.title} &nearr;
+                Visit live project: {cs.liveLabel || cs.title} ↗
               </a>
             </div>
           )}

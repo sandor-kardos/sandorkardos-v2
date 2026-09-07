@@ -1,10 +1,24 @@
 import type { Metadata } from "next";
+import { Plus_Jakarta_Sans, Outfit } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 import JsonLd from "@/components/JsonLd";
-import PaintBrushCanvas from "@/components/PaintBrushCanvas";
+
+const plusJakarta = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-sans",
+  display: "swap"
+});
+
+const outfit = Outfit({
+  subsets: ["latin"],
+  weight: ["500", "600", "700", "800"],
+  variable: "--font-display",
+  display: "swap"
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://sandorkardos.com"),
@@ -13,7 +27,7 @@ export const metadata: Metadata = {
     template: "%s | Sándor Kardos"
   },
   description:
-    "End-to-end product and service designer combining user research, journey mapping, and AI-assisted rapid prototyping. Based in Edinburgh.",
+    "End-to-end product and service designer connecting frontstage user experience with backstage operational reality. Based in Edinburgh.",
   authors: [{ name: "Sándor Kardos", url: "https://sandorkardos.com" }],
   creator: "Sándor Kardos",
   publisher: "Sándor Kardos",
@@ -29,7 +43,7 @@ export const metadata: Metadata = {
     siteName: "Sándor Kardos: Product & Service Designer",
     title: "Sándor Kardos: Product, UX & Service Designer, Edinburgh",
     description:
-      "End-to-end product and service designer combining user research, journey mapping, and AI-assisted rapid prototyping. Based in Edinburgh.",
+      "End-to-end product and service designer connecting frontstage user experience with backstage operational reality. Based in Edinburgh.",
     images: [
       {
         url: "/images/portrait.webp",
@@ -43,7 +57,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Sándor Kardos: Product, UX & Service Designer, Edinburgh",
     description:
-      "End-to-end product and service designer combining user research, journey mapping, and AI-assisted rapid prototyping. Based in Edinburgh.",
+      "End-to-end product and service designer connecting frontstage user experience with backstage operational reality. Based in Edinburgh.",
     images: ["/images/portrait.webp"]
   },
   alternates: {
@@ -68,11 +82,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en-GB" data-theme="light">
+    <html lang="en-GB" data-theme="dark" className={`${plusJakarta.variable} ${outfit.variable}`}>
       <head>
         <JsonLd type="Person" />
       </head>
       <body>
+        <div className="ambient-background-glow" aria-hidden="true" />
         <a href="#main-content" className="skip-link">
           Skip to content
         </a>
@@ -81,7 +96,6 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
-        <PaintBrushCanvas />
         <GoogleAnalytics />
       </body>
     </html>
